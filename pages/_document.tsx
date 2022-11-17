@@ -5,8 +5,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>Todo List App</title>
-          <meta charset="UTF-8"></meta>
+          <title>To-Do List App</title>
+          <meta charSet="UTF-8"></meta>
           <meta
             name="viewport"
             content="minimum-scale=1, width=device-width, initial-scale=1 ,shrink-to-fit=no, viewport-fit=cover"
