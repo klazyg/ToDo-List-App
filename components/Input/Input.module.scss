@@ -1,0 +1,13 @@
+@import './styles/variables/colors.module.scss';
+@import './styles/variables/font-sizes.module.scss';
+
+.input {
+    font-weight: $weight-semibold;
+    color: $colorPrimary;
+    background-color: $colorBlue;
+    padding: 12px 0;
+    border: 1px solid $colorPrimary;
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: center;
+}
