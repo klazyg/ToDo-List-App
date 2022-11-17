@@ -1,0 +1,33 @@
+@import './styles/variables/colors.module.scss';
+@import './styles/variables/font-sizes.module.scss';
+
+
+.taskForm {
+    display: grid;
+    grid-template-columns: 1fr 3fr repeat(2, 0.5fr) 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 16px;
+    grid-row-gap: 0px;
+    display: flex;
+    flex-wrap: wrap;
+
+    ::placeholder {
+        color: white;
+    }
+}
+
+.taskForm__btn {
+    font-weight: $weight-semibold;
+    color: $colorPrimary;
+    background-color: $colorBlue;
+    padding: 12px 30px;
+    border: 1px solid $colorSecondary;
+    border-radius: 14px;
+    text-align: center;
+    cursor: pointer;
+
+    ::placeholder {
+        color: white;
+    
+    }
+}
