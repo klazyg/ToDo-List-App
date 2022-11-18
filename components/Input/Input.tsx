@@ -1,18 +1,12 @@
 import styles from "./Input.module.scss";
 
-interface InputProps {
-  placeholder: string;
-  name: string;
-  formRef: any;
-}
-
-export default function Input(props: InputProps) {
+export default function Input({placeholder, name, onChange}) {
   return (
     <input
       className={styles.input}
-      name={props.name}
-      placeholder={props.placeholder}
-      ref={props.formRef}
+      name={name}
+      placeholder={placeholder}
+      onChange={onChange}
     />
   );
 }
