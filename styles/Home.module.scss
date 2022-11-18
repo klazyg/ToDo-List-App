@@ -29,3 +29,17 @@
   grid-row-gap: 0px;
   border-bottom: 1px solid white;
 }
+
+.taskForm {
+  display: grid;
+  grid-template-columns: 1fr 3fr repeat(2, 0.5fr) 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 0px;
+  display: flex;
+  flex-wrap: wrap;
+
+  ::placeholder {
+      color: white;
+  }
+}
