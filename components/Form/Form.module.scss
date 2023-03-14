@@ -1,0 +1,92 @@
+@import '/styles/main.module.scss';
+
+.form {
+    border-top: 1px solid $colorOrange;
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.row {
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.row1 {
+    width: 100%;
+}
+
+.row2 {
+    width: 100%;
+}
+
+.input_name,
+.input_task,
+.select,
+.input_date {
+    padding: 1rem;
+    border: 2px solid $colorOrange;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    outline: none;
+    font-size: 1rem;
+    font-weight: $fontWeightMedium;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &:focus {
+        border: 2px solid $colorRed;
+    }
+
+    &::placeholder {
+        color: $colorFontSecondary;
+        text-transform: capitalize;
+    }
+}
+
+.input_task {
+    @extend .input_name;
+    width: 35%;
+}
+
+.input_date {
+    text-transform: capitalize;
+}
+
+.select {
+    @extend .input_name;
+    color: $colorFontPrimary;
+    text-transform: capitalize;
+}
+
+.text:focus {
+    outline: none;
+}
+
+.btn_position {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    @extend .input_date;
+    background-color: $colorRed;
+    border: 2px solid $colorOrange;
+    color: $colorFontWhite;
+    font-size: 1.4rem;
+    font-weight: $fontWeightSemiBold;
+    text-transform: capitalize;
+
+    &:focus {
+        border: 2px solid $colorRed;
+    }
+}
