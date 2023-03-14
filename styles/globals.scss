@@ -5,14 +5,24 @@ body {
   padding: 0;
   margin: 0;
   font-family: $fontDefault;
-  color: $colorPrimary;
-  @include gradient(left, $colorBgPrimary);
+  color: $colorFontPrimary;
+  background-color: $colorOrange;
+  font-size: $fontSizeDefault;
+  line-height: $lineHeightDefault;
+  letter-spacing: $letterSpacingDefault;
 }
+
 
 a {
   color: inherit;
   text-decoration: none;
 }
+
+
+li {
+  list-style: none;
+}
+
 
 * {
   box-sizing: border-box;
