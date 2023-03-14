@@ -1,97 +1,60 @@
-import React, { useState } from "react";
-import Button from '../components/Button/Button';
-import Tasklist from '../components/TaskList/Tasklist';
+import Form from '../components/Form/Form';
 import styles from '../styles/Home.module.scss';
-import { MdTaskAlt } from "react-icons/md";
-import { PrismaClient, Task, Prisma } from '@prisma/client';
-import Input from "../components/Input/Input";
+import { useState } from 'react';
+import axios from 'axios';
+import Table from '../components/Table/Table';
 
-const prisma = new PrismaClient();
+export interface ITask {
+  id: number;
+  name: string;
+  task: string;
+  priority: string;
+  date: string;
+}
+interface HomeProps {
+  tasksData: ITask[];
+}
+
+const Home: React.FC<HomeProps> = ({ tasksData }) => {
+  const [tasks, setTasks] = useState(tasksData);
+  const [lastTaskId, setLastTaskId] = useState(tasksData.length > 0 ? tasksData[tasksData.length - 1].id : 0);
+
+  const onSubmitTask = (task) => {
+    const newTask = { ...task, id: lastTaskId + 1 };
+    setTasks((prevTasks) => [...prevTasks, newTask]);
+    setLastTaskId((prevId) => prevId + 1);
+    axios.post("/api/tasks", { tasks: [newTask] });
+  };
+
+  return (
+    <>
+      <div className={styles.main}>
+        <Table
+          tasks={tasks}
+          setTasks={setTasks} />
+        <Form
+          onSubmitTask={onSubmitTask} />
+      </div>
+    </>
+  );
+};
 
 export async function getServerSideProps() {
-    const tasks: Task[] = await prisma.task.findMany();
+  try {
+    const response = await axios.get("http://localhost:3000/api/tasks");
     return {
-        props: {
-            initialTasks: tasks
-        }
+      props: {
+        tasksData: response.data.tasks,
+      },
     };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        tasksData: [],
+      },
+    };
+  }
 }
 
-export default function Index({ initialTasks }) {
-    //useswr
-    const [inputs, setInputs] = useState({});
-
-    async function saveTask(task: any) {
-        const response = await fetch('/api/tasks', {
-            method: 'POST',
-            body: JSON.stringify(task)
-        });
-    
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        }
-        return await response.json();
-    
-    }
-
-    function handleOnChange(event) {
-        setInputs((prev) => ({...prev, [event.target.name]: event.target.value}))
-    }
-
-    function handleOnSubmit(event) {
-        event.preventDefault();
-        saveTask(inputs);
-    }  
-
-    return (
-        <div className={styles.container}>
-            <div className={styles.main}>
-                <div className={styles.title}>
-                    <MdTaskAlt
-                        size="3rem"
-                    />
-                    <h1>Task List</h1>
-                </div>
-                <div className={styles.table}>
-                    <h2></h2>
-                    <h2>Name</h2>
-                    <h2>Task</h2>
-                    <h2>Priority</h2>
-                    <h2>Actions</h2>
-                    <h2>Date</h2>
-                </div>
-                {initialTasks.map((c, i: number) => (
-                    <div key={i}>
-                        <Tasklist task={c} />
-                    </div>
-                ))}
-                <section>
-                    <form onSubmit={handleOnSubmit} className={styles.taskForm}>
-                        <Input 
-                            onChange = {handleOnChange}
-                            placeholder="Name"
-                            name="name"
-                        />
-                        <Input
-                            onChange = {handleOnChange}
-                            placeholder="Add new"
-                            name="task"
-                        />
-                        <Input
-                            onChange = {handleOnChange}
-                            placeholder="Priority"
-                            name="priority"
-                        />
-                        <Input
-                            onChange = {handleOnChange}
-                            placeholder="Date"
-                            name="date"
-                        />
-                        <Button
-                    />
-                    </form>
-                </section>
-            </div>
-        </div>
-    );
-}
+export default Home;
