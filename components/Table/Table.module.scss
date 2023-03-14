@@ -1,0 +1,56 @@
+@import '/styles/main.module.scss';
+
+.title {
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 1px solid $colorOrange;
+}
+
+.icon {
+    color: $colorOrange;
+}
+
+.text {
+    font-size: 2rem;
+    font-weight: $fontWeightSemiBold;
+    color: $colorOrange;
+}
+
+.table {
+    width: 100%;
+    text-align: center;
+    padding: 4rem;
+}
+
+.table_heading {
+    font-size: 1.5rem;
+    color: $colorOrange;
+}
+
+.complete_cell {
+    width: 5%;
+}
+
+.name_cell {
+    width: 20%;
+}
+
+.task_cell {
+    width: 40%;
+}
+
+.priority_cell {
+    width: 15%;
+}
+
+.actions_cell {
+    width: 5%;
+}
+
+.date_cell {
+    width: 15%;
+}

@@ -1,0 +1,40 @@
+@import '/styles/main.module.scss';
+
+.table_row {
+    font-size: 1.2rem;
+    font-weight: $fontWeightNormal;
+}
+
+.table_cell {
+    padding: 1rem 0;
+}
+
+.icon_complete {
+    color: $colorBtnGreen;
+    cursor: pointer;
+
+    &:hover {
+        transition: transform 0.4s;
+        transform: scale(1.1);
+    }
+}
+
+.icon_edit {
+    color: $colorBtnRed;
+    cursor: pointer;
+
+    &:hover {
+        transition: transform 0.4s;
+        transform: scale(1.1);
+    }
+}
+
+.icon_remove {
+    color: $colorBtnBlue;
+    cursor: pointer;
+
+    &:hover {
+        transition: transform 0.4s;
+        transform: scale(1.1);
+    }
+}
