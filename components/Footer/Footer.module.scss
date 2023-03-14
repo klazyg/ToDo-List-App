@@ -1,6 +1,13 @@
+@import '/styles/main.module.scss';
+
 .footer {
     display: flex;
+    align-items: center;
     justify-content: flex-end;
-    margin-right: 2rem;
-    flex-wrap: wrap;
+    padding: 3rem;
+}
+
+.text {
+    color: $colorFontWhite;
+    font-weight: $fontWeightSemiBold;
 }

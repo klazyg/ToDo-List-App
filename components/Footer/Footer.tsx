@@ -1,12 +1,11 @@
-import React from "react";
 import styles from "./Footer.module.scss";
 
-function Footer() {
+const Footer: React.FC = () => {
   return (
-    <div className={styles.footer}>
-      <span>Copyright © {new Date().getFullYear()} Klaudia Zygmunt</span>
-    </div>
+    <footer className={styles.footer}>
+      <span className={styles.text}>© {new Date().getFullYear()} Klaudia Zygmunt</span>
+    </footer>
   );
-}
+};
 
 export default Footer;
