@@ -1,21 +1,15 @@
-// Main Colors
-$colorBlue: #508AFC;
-$colorDarkPurple: #741FE4;
+//MAIN COLOR
+$colorOrange: #FF9000;
+$colorRed: #E44332;
 
-// Background Colors
-$colorBgPrimary: $colorBlue, $colorDarkPurple;
-$colorBgSecondary: $colorDarkPurple, $colorBlue;
 
-@mixin gradient($direction, $gradient) { 
-    background: -webkit-linear-gradient($direction, $gradient);
-}
+//FONTS COLORS
+$colorFontPrimary: black;
+$colorFontSecondary: #B5B1B5;
+$colorFontWhite: white;
 
-// Font Colors
-$colorPrimary: white;
-$colorSecondary: #B5B1B5;
 
-// Button Colors
-$colorRed: #C24358;
-$colorGreen: #148F49;
-$colorYellow: #CC9018;
-$colorBlue: #508AFC;
+//BUTTON COLORS
+$colorBtnRed: #C24358;
+$colorBtnGreen: #148F49;
+$colorBtnBlue: #508AFC;
