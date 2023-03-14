@@ -1,6 +1,21 @@
+@import '/styles/main.module.scss';
+
+.position {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3rem;
+    color: $colorFontWhite;
+}
+
 .logo {
     display: flex;
     align-items: center;
     margin-left: 2rem;
     gap: 1.3rem;
+    cursor: pointer;
+}
+
+.title {
+    font-weight: $fontWeightSemiBold;
 }
